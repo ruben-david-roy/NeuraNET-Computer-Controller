@@ -13,7 +13,7 @@ data = {
     "conversation": {
         "history": [
             {
-                "sender": "system",
+                "sender": "instruct",
                 "content": "You are an expert in python. Only provide python code as output. Never output any text before or after the python code, as the output will be directly executed in a shell. Only give the code, no explanations or descriptions, do not put the code in codeblocks either (```)."
             },
             {
