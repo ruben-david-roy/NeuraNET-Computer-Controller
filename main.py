@@ -2,7 +2,7 @@ import os
 import requests
 import re
 
-neuranet_api_key = os.getenv('NEURANET_API_KEY')
+neuranet_api_key = os.getenv('NEURANET_API_KEY') # save your NeuraNET API key as an environment variable
 
 user_message = input("Enter Task: ")
 
@@ -28,11 +28,11 @@ headers = {
     "Authorization": f"Bearer {neuranet_api_key}",
     "Content-Type": "application/json"
 }
-response = requests.post("https://neuranet-ai.com/api/v1/chat", headers=headers, json=data)
+response = requests.post("https://neuranet-ai.com/api/v1/chat", headers=headers, json=data) # send request to API
 
 generated_code = response.json()['choices'][0]['text']
 
-match = re.search(r'```python\s*(.*?)\s*```', generated_code, re.DOTALL)
+match = re.search(r'```python\s*(.*?)\s*```', generated_code, re.DOTALL) # just in case
 if match:
     generated_code = match.group(1)
 else:
